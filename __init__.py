@@ -1,3 +1,0 @@
-sendToSenselyStr
-sendToSenselyJSON
-
