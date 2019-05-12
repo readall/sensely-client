@@ -1,0 +1,3 @@
+sendToSenselyStr
+sendToSenselyJSON
+
