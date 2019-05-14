@@ -56,23 +56,23 @@ def senselyWebSocket(uri:str,
         print( 'Failed to publish message:', resp)
 
 
-def senselySendREST( deviceID:str,
-                     channelID:np.long,
-                     voltage:np.float,
-                     current:np.float,
-                     temperature:np.float,
-                     timestamp:np.long):
+def senselySendREST( ideviceID:str,
+                     ichannelID:np.long,
+                     ivoltage:np.float,
+                     icurrent:np.float,
+                     itemperature:np.float,
+                     itimestamp:np.long):
 
 
     uri = PROTO+SERVER_NAME+PORT+TOPIC
 
     senselyWebSocket(uri, 
-            deviceID=deviceID,
-            channelID=channelID
-            voltage=voltage
-            current=current
-            temperature=temperature
-            timestamp=timestamp
+            deviceID=ideviceID,
+            channelID=ichannelID,
+            voltage=ivoltage,
+            current=icurrent,
+            temperature=itemperature,
+            timestamp=itimestamp
             )
 
 
@@ -80,14 +80,14 @@ if __name__=="__main__":
     uri = PROTO+SERVER_NAME+PORT+TOPIC
     #senselyWebSocket(uri, "sen-pdu-r-0010", 5, -48, 15.89, 55.98, int(round(time.time())))
     #time.sleep(10)
-    for i in range(1,10):
+    for i in range(1,1000):
         senselySendREST(
-                deviceID="sen-pdu-r-0010", 
-                channelID=i,
-                voltage=-i, 
-                current=round((-15.89+i),2), 
-                temperature=round((i/10+5.98),2), 
-                timestamp=int(round(time.time(),0))
+                ideviceID="sen-pdu-r-0010", 
+                ichannelID=i,
+                ivoltage=-i, 
+                icurrent=round((-15.89+i),2), 
+                itemperature=round((i/10+5.98),2), 
+                itimestamp=int(round(time.time(),0))
                 )
         #time.sleep(1)
 
