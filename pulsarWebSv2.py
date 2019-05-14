@@ -6,7 +6,6 @@ import sys
 import os
 import time
 from datetime import datetime, timedelta
-import numpy as np
 
 #SERVER_NAME="cec164b0-e2b4-4d40-9992-38b8c1db3409.pub.cloud.scaleway.com"
 SERVER_NAME="51.15.237.55"
@@ -17,11 +16,11 @@ TOPIC = '/ws/v2/producer/persistent/public/default/energypdu'
 
 def senselyWebSocket(uri:str, 
                             deviceID:str,
-                            channelID:np.long,
-                            voltage:np.float,
-                            current:np.float,
-                            temperature:np.float,
-                            timestamp:np.long):
+                            channelID:int,
+                            voltage:float,
+                            current:float,
+                            temperature:float,
+                            timestamp:int):
 
     paramDict = {"deviceId":deviceID,
             "channel":channelID,
@@ -57,11 +56,11 @@ def senselyWebSocket(uri:str,
 
 
 def senselySendREST( ideviceID:str,
-                     ichannelID:np.long,
-                     ivoltage:np.float,
-                     icurrent:np.float,
-                     itemperature:np.float,
-                     itimestamp:np.long):
+                     ichannelID:int,
+                     ivoltage:float,
+                     icurrent:float,
+                     itemperature:float,
+                     itimestamp:int):
 
 
     uri = PROTO+SERVER_NAME+PORT+TOPIC
